@@ -1,0 +1,68 @@
+/**
+ * Representa un rectangulo con base y altura.
+ */
+public class Rectangulo {
+
+    private double base;
+    private double altura;
+
+    /**
+     * Establece la base del rectangulo.
+     *
+     * @param base Valor de la base.
+     * @throws IllegalArgumentException si la base es menor o igual a 0.
+     */
+    public void setBase(double base) {
+        if (base <= 0) {
+            throw new IllegalArgumentException("La base debe ser positiva.");
+        }
+        this.base = base;
+    }
+
+    /**
+     * Establece la altura del rectangulo.
+     *
+     * @param altura Valor de la altura.
+     * @throws IllegalArgumentException si la altura es menor o igual a 0.
+     */
+    public void setAltura(double altura) {
+        if (altura <= 0) {
+            throw new IllegalArgumentException("La altura debe ser positiva.");
+        }
+        this.altura = altura;
+    }
+
+    public double getBase() {
+        return base;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public static void main(String[] args) {
+
+        Rectangulo r = new Rectangulo();
+
+        try {
+            r.setBase(10);
+            r.setAltura(5);
+            System.out.println("Base: " + r.getBase());
+            System.out.println("Altura: " + r.getAltura());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            r.setBase(-3);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            r.setAltura(0);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
